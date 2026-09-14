@@ -1,0 +1,59 @@
+---
+title: Entrar con Nostr
+description: Inicia sesión en el campus sin contraseña ni email, firmando con tu identidad Nostr desde una extensión del navegador.
+sidebar:
+  order: 2
+---
+
+Si tienes una identidad Nostr (una `npub`), puedes entrar al campus con un clic. Tu extensión firma un desafío y el campus verifica la firma. **Tu clave privada nunca sale de tu navegador**: el servidor solo conoce tu clave pública.
+
+## Qué necesitas
+
+Una extensión de navegador compatible con NIP-07. Las más usadas:
+
+- [Alby](https://getalby.com/) (Chrome, Firefox, Brave)
+- [nos2x](https://github.com/fiatjaf/nos2x) (Chrome, Brave) o [nos2x-fox](https://diegogurpegui.com/nos2x-fox/) (Firefox)
+- Flamingo, Nostore y otras compatibles con NIP-07
+
+{% aside type="caution" title="Móvil" %}
+Las extensiones de navegador no funcionan en la mayoría de navegadores móviles. En el móvil usa [GitHub o Google](/acceso/login-github-google/), o el [usuario y contraseña](/acceso/crear-cuenta/) de tu cuenta.
+{% /aside %}
+
+## Pasos
+
+{% steps %}
+
+1. Instala la extensión y crea o importa tu clave Nostr siguiendo las instrucciones de la propia extensión.
+
+2. Abre [moodle.libreriadesatoshi.com/login](https://moodle.libreriadesatoshi.com/login/index.php) y pulsa **Iniciar sesión con Nostr**.
+
+3. La extensión te pedirá permiso para compartir tu **clave pública**. Acéptalo.
+
+4. A continuación te pedirá **firmar** la solicitud de inicio de sesión. Acéptala también. Estás firmando un evento de un solo uso que caduca en dos minutos; no es una transacción ni autoriza nada más.
+
+5. En pocos segundos entras en tu Área personal.
+
+{% /steps %}
+
+## La primera vez
+
+Al entrar por primera vez con una clave Nostr se crea tu cuenta automáticamente:
+
+- **Nombre visible**: se toma de tu perfil Nostr (el `display_name` de tu evento de perfil). Si no tienes perfil publicado, se usa un nombre genérico que puedes cambiar en [tu perfil](/cuenta/perfil-e-idioma/).
+- **Email**: no es obligatorio. Puedes añadir uno en tu perfil si quieres recibir avisos del curso por correo.
+
+## Errores habituales
+
+| Mensaje | Qué significa | Qué hacer |
+| --- | --- | --- |
+| *No se encontró ninguna extensión de Nostr* | El navegador no tiene una extensión NIP-07 activa | Instala Alby o nos2x y recarga la página |
+| *La extensión denegó el acceso* | Rechazaste compartir la clave pública | Repite y acepta el permiso en la extensión |
+| *Se canceló la firma* | Rechazaste firmar la solicitud | Repite y acepta la firma |
+| *No se pudo obtener el desafío* | La página llevaba demasiado tiempo abierta | Recarga la página e inténtalo de nuevo |
+| *Error de red* | Sin conexión o el relay no responde | Comprueba tu conexión y vuelve a intentarlo |
+
+## Privacidad y seguridad
+
+- El campus recibe solo tu clave pública y una firma. No puede publicar en tu nombre ni acceder a tus mensajes.
+- La firma va sobre un desafío único con la URL del campus, así que no puede reutilizarse en otro sitio.
+- El plugin que hace posible este login es software libre desarrollado por Librería de Satoshi: [moodle-auth_nostr en GitHub](https://github.com/LibreriadeSatoshi/moodle-auth_nostr).

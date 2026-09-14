@@ -1,0 +1,31 @@
+---
+title: Help Center
+description: Step-by-step guides to sign in and use the Librería de Satoshi course platform.
+template: splash
+hero:
+  tagline: Everything you need to get into the campus, manage your account and follow your courses.
+  actions:
+    - text: How to sign in
+      link: /en/acceso/iniciar-sesion/
+      icon: right-arrow
+    - text: Go to the campus
+      link: https://moodle.libreriadesatoshi.com
+      icon: external
+      variant: minimal
+---
+
+{% cardgrid stagger=true %}
+
+{% linkcard title="Sign in" description="The four ways into the campus and which one suits you." href="/en/acceso/iniciar-sesion/" /%}
+
+{% linkcard title="Sign in with Nostr" description="No password, no email: sign with your Nostr extension." href="/en/acceso/login-nostr/" /%}
+
+{% linkcard title="Sign in with GitHub or Google" description="Use an account you already have." href="/en/acceso/login-github-google/" /%}
+
+{% linkcard title="Guest access" description="Browse open courses without creating an account." href="/en/acceso/acceso-invitado/" /%}
+
+{% linkcard title="Create an account" description="Classic sign-up with username and password." href="/en/acceso/crear-cuenta/" /%}
+
+{% linkcard title="Reset your password" description="If you forgot your username or password." href="/en/acceso/recuperar-contrasena/" /%}
+
+{% /cardgrid %}

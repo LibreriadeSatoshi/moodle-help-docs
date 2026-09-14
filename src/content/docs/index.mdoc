@@ -1,0 +1,31 @@
+---
+title: Centro de ayuda
+description: Guías paso a paso para entrar y usar la plataforma de cursos de Librería de Satoshi.
+template: splash
+hero:
+  tagline: Todo lo que necesitas para entrar al campus, gestionar tu cuenta y seguir tus cursos.
+  actions:
+    - text: Cómo iniciar sesión
+      link: /acceso/iniciar-sesion/
+      icon: right-arrow
+    - text: Ir al campus
+      link: https://moodle.libreriadesatoshi.com
+      icon: external
+      variant: minimal
+---
+
+{% cardgrid stagger=true %}
+
+{% linkcard title="Iniciar sesión" description="Las cuatro formas de entrar al campus y cuál te conviene." href="/acceso/iniciar-sesion/" /%}
+
+{% linkcard title="Entrar con Nostr" description="Sin contraseña ni email: firma con tu extensión Nostr." href="/acceso/login-nostr/" /%}
+
+{% linkcard title="Entrar con GitHub o Google" description="Usa una cuenta que ya tienes." href="/acceso/login-github-google/" /%}
+
+{% linkcard title="Acceso como invitado" description="Explora los cursos abiertos sin crear cuenta." href="/acceso/acceso-invitado/" /%}
+
+{% linkcard title="Crear una cuenta" description="Registro clásico con usuario y contraseña." href="/acceso/crear-cuenta/" /%}
+
+{% linkcard title="Recuperar la contraseña" description="Si olvidaste tu usuario o tu contraseña." href="/acceso/recuperar-contrasena/" /%}
+
+{% /cardgrid %}

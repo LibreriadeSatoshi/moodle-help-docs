@@ -1,0 +1,59 @@
+---
+title: Sign in with Nostr
+description: Sign in to the campus with no password or email, by signing with your Nostr identity from a browser extension.
+sidebar:
+  order: 2
+---
+
+If you have a Nostr identity (an `npub`), you can enter the campus with one click. Your extension signs a challenge and the campus verifies the signature. **Your private key never leaves your browser**: the server only ever sees your public key.
+
+## What you need
+
+A browser extension that supports NIP-07. The most common ones:
+
+- [Alby](https://getalby.com/) (Chrome, Firefox, Brave)
+- [nos2x](https://github.com/fiatjaf/nos2x) (Chrome, Brave) or [nos2x-fox](https://diegogurpegui.com/nos2x-fox/) (Firefox)
+- Flamingo, Nostore and other NIP-07 compatible extensions
+
+{% aside type="caution" title="Mobile" %}
+Browser extensions do not work in most mobile browsers. On your phone, use [GitHub or Google](/en/acceso/login-github-google/), or the [username and password](/en/acceso/crear-cuenta/) of your account.
+{% /aside %}
+
+## Steps
+
+{% steps %}
+
+1. Install the extension and create or import your Nostr key following the extension's own instructions.
+
+2. Open [moodle.libreriadesatoshi.com/login](https://moodle.libreriadesatoshi.com/login/index.php) and click **Log in with Nostr**.
+
+3. The extension will ask permission to share your **public key**. Accept.
+
+4. It will then ask you to **sign** the login request. Accept as well. You are signing a single-use event that expires in two minutes; it is not a transaction and authorises nothing else.
+
+5. Within a few seconds you are on your Dashboard.
+
+{% /steps %}
+
+## The first time
+
+The first sign-in with a Nostr key creates your account automatically:
+
+- **Display name**: taken from your Nostr profile (the `display_name` in your profile event). If you have no published profile, a generic name is used, which you can change in [your profile](/en/cuenta/perfil-e-idioma/).
+- **Email**: not required. You can add one in your profile if you want course notices by email.
+
+## Common errors
+
+| Message | Meaning | What to do |
+| --- | --- | --- |
+| *No Nostr extension found* | The browser has no active NIP-07 extension | Install Alby or nos2x and reload the page |
+| *Extension denied access* | You declined to share the public key | Try again and accept the permission in the extension |
+| *Signing cancelled* | You declined to sign the request | Try again and accept the signature |
+| *Could not fetch login challenge* | The page had been open too long | Reload the page and try again |
+| *Network error* | No connection, or the relay is not responding | Check your connection and retry |
+
+## Privacy and security
+
+- The campus receives only your public key and a signature. It cannot post on your behalf or read your messages.
+- The signature covers a unique challenge that includes the campus URL, so it cannot be replayed elsewhere.
+- The plugin behind this login is free software built by Librería de Satoshi: [moodle-auth_nostr on GitHub](https://github.com/LibreriadeSatoshi/moodle-auth_nostr).
