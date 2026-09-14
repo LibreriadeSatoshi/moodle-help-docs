@@ -16,6 +16,23 @@ export default defineConfig({
 				en: 'Help · Librería de Satoshi',
 			},
 			description: 'Guías de ayuda para la plataforma de cursos de Librería de Satoshi.',
+			logo: {
+				light: './src/assets/logo-light.svg',
+				dark: './src/assets/logo-dark.svg',
+				alt: 'Librería de Satoshi',
+			},
+			customCss: ['./src/styles/custom.css'],
+			head: [
+				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
+				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
+				{
+					tag: 'link',
+					attrs: {
+						rel: 'stylesheet',
+						href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+					},
+				},
+			],
 			defaultLocale: 'root',
 			locales: {
 				root: { label: 'Español', lang: 'es' },

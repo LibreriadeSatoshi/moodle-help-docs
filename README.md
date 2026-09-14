@@ -48,6 +48,6 @@ Netlify, from `netlify.toml` (`npm run build` → `dist/`). Point `docs.libreria
 
 ## TODO
 
-- Brand colours and logo (`src/styles/custom.css`, `logo` in Starlight config).
+- Open Graph / social preview image (`public/logo_dark_bg.svg` is the full lockup; needs a PNG for OG).
 - Sections `cursos/` (enrolment, certificates) once the flows are confirmed with the team.
 - Contact channel for the "escríbenos / contact us" mentions (support email or form).
