@@ -12,8 +12,8 @@ export default defineConfig({
 	integrations: [
 		starlight({
 			title: {
-				es: 'Ayuda · Librería de Satoshi',
-				en: 'Help · Librería de Satoshi',
+				es: 'Librería de Satoshi DOCS',
+				en: 'Librería de Satoshi DOCS',
 			},
 			description: 'Guías de ayuda para la plataforma de cursos de Librería de Satoshi.',
 			logo: {
@@ -29,7 +29,7 @@ export default defineConfig({
 					tag: 'link',
 					attrs: {
 						rel: 'stylesheet',
-						href: 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap',
+						href: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap',
 					},
 				},
 			],

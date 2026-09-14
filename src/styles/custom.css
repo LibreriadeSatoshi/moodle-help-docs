@@ -1,51 +1,192 @@
 /* Librería de Satoshi brand for Starlight.
-   Source: campus theme (moodle.libreriadesatoshi.com) + brand SVGs.
-   Accent: Bitcoin orange #F7931A · Dark: #1C1917 · Cream: #f5f0eb · Font: Inter */
+   Source: libreriadesatoshi.netlify.app design tokens (--color-* in :root/.dark and .light).
+   Accent: Bitcoin orange #f7931a (dark) · #d97e08 (light)
+   Type: Plus Jakarta Sans (UI/body) · DM Serif Display (headings) · JetBrains Mono (code) */
 
 :root {
-	--sl-font: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--sl-font: 'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+	--sl-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, SFMono-Regular, Menlo, monospace;
+	--lds-font-display: 'DM Serif Display', Georgia, 'Times New Roman', serif;
+
+	/* Site tokens, kept verbatim so components can use them directly */
+	--lds-accent: #f7931a;
+	--lds-accent-contrast: #0d0800;
+	--lds-brand: #f7931a;
+	--lds-ambassador: #6b48ff;
+	--lds-ln-ai: #00d4ff;
+	--lds-grants: #22c55e;
 
 	/* Dark mode (default) */
-	--sl-color-accent-low: #3a2306;
+	--sl-color-accent-low: #3d2405;
 	--sl-color-accent: #f7931a;
-	--sl-color-accent-high: #ffd2a3;
+	--sl-color-accent-high: #ffc87d;
 	--sl-color-white: #ffffff;
-	--sl-color-gray-1: #f0eae4;
-	--sl-color-gray-2: #cbc4bd;
-	--sl-color-gray-3: #948b83;
-	--sl-color-gray-4: #5f574f;
-	--sl-color-gray-5: #3d3632;
-	--sl-color-gray-6: #292522;
-	--sl-color-black: #1c1917;
+	--sl-color-gray-1: #f0ebe3; /* --color-text */
+	--sl-color-gray-2: #cfc7bc;
+	--sl-color-gray-3: #8c7e72; /* --color-text-muted */
+	--sl-color-gray-4: #5a5048;
+	--sl-color-gray-5: #272320; /* --color-border */
+	--sl-color-gray-6: #1a1714; /* --color-bg-card */
+	--sl-color-black: #0d0c0a; /* --color-bg */
 }
 
 :root[data-theme='light'] {
-	--sl-color-accent-low: #fff1e0;
-	--sl-color-accent: #b85c00;
-	--sl-color-accent-high: #5c2a00;
-	--sl-color-white: #1c1917;
-	--sl-color-gray-1: #292522;
-	--sl-color-gray-2: #3d3632;
-	--sl-color-gray-3: #5f574f;
-	--sl-color-gray-4: #948b83;
-	--sl-color-gray-5: #cbc4bd;
-	--sl-color-gray-6: #ece6df;
-	--sl-color-gray-7: #f5f0eb;
-	--sl-color-black: #fdfbf9;
+	--lds-accent: #d97e08;
+
+	--sl-color-accent-low: #fbe9cf;
+	--sl-color-accent: #d97e08;
+	--sl-color-accent-high: #8a4d00;
+	--sl-color-white: #111008; /* --color-text */
+	--sl-color-gray-1: #221f18;
+	--sl-color-gray-2: #3a352c;
+	--sl-color-gray-3: #7a7060; /* --color-text-muted */
+	--sl-color-gray-4: #a99e8e;
+	--sl-color-gray-5: #d8d2c8; /* --color-border */
+	--sl-color-gray-6: #ede9e2; /* --color-bg-secondary */
+	--sl-color-gray-7: #faf8f5; /* --color-bg-card */
+	--sl-color-black: #f5f2ec; /* --color-bg */
 }
 
-/* Hero primary button: keep the Bitcoin orange in both themes, dark text for contrast */
+/* Hero primary button: Bitcoin orange in both themes, dark text for contrast */
 .sl-link-button.primary {
-	background: #f7931a;
-	border-color: #f7931a;
-	color: #1c1917;
+	background: var(--lds-accent);
+	border-color: var(--lds-accent);
+	color: var(--lds-accent-contrast);
 }
 .sl-link-button.primary:hover {
 	background: #e0820f;
 	border-color: #e0820f;
 }
 
+/* Card / link hover border matches the site's --color-border-hover */
+.card:hover,
+.sl-link-card:hover {
+	border-color: var(--lds-accent);
+}
+
+/* Headings use the display serif; DM Serif Display ships a single (400) weight. */
+.content-panel h1,
+.content-panel h2,
+.content-panel h3,
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+h1.site-title {
+	font-family: var(--lds-font-display);
+	font-weight: 400;
+	letter-spacing: 0;
+}
+
 .site-title {
-	font-weight: 600;
+	font-weight: 400;
 	letter-spacing: 0.01em;
+}
+
+/* ---------------------------------------------------------------------------
+   Chrome layout in the shape of docs.stripe.com: slim sticky banner, search
+   front and centre, dense low-chrome menus. Structure and spacing only —
+   colours and type stay on the Librería de Satoshi brand above.
+   --------------------------------------------------------------------------- */
+
+:root {
+	--sl-nav-height: 3.5rem;
+	--sl-nav-pad-y: 0.5rem;
+	--sl-nav-pad-x: 1.25rem;
+	--sl-sidebar-width: 16.5rem;
+	--sl-content-width: 46rem;
+	--sl-text-h1: 2.25rem;
+	--sl-text-h2: 1.5rem;
+	--sl-text-h3: 1.1875rem;
+}
+
+/* Banner: hairline rule instead of Starlight's heavier shadow, logo + wordmark
+   tight together on the left the way Stripe pairs its mark with "Docs". */
+.header {
+	border-bottom: 1px solid var(--sl-color-gray-5);
+	box-shadow: none;
+	backdrop-filter: saturate(180%) blur(12px);
+}
+.header .site-title {
+	gap: 0.5rem;
+	font-size: 1rem;
+}
+.header .site-title img {
+	height: 1.5rem;
+	width: auto;
+}
+
+/* Search: the wide centred field that anchors the Stripe banner. */
+site-search {
+	flex: 1;
+	max-width: 28rem;
+	margin-inline: auto;
+}
+site-search button[data-open-modal] {
+	width: 100%;
+	justify-content: flex-start;
+	border-radius: 9999px;
+	padding-block: 0.375rem;
+	background-color: var(--sl-color-gray-6);
+}
+site-search button[data-open-modal] > kbd {
+	margin-inline-start: auto;
+}
+
+/* Sidebar menus: dense, borderless rows with an indent guideline, and small
+   uppercase eyebrow labels over each group. */
+.sidebar-pane {
+	border-inline-end: 1px solid var(--sl-color-gray-5);
+	padding-top: 0.75rem;
+}
+.sidebar-content {
+	font-size: var(--sl-text-sm);
+}
+.sidebar-content ul.top-level > li + li {
+	margin-top: 1.25rem;
+}
+.sidebar-content .large {
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-3);
+}
+.sidebar-content ul ul {
+	margin-top: 0.375rem;
+	padding-inline-start: 0.75rem;
+	border-inline-start: 1px solid var(--sl-color-gray-5);
+}
+.sidebar-content a {
+	border-radius: 0.375rem;
+	padding-block: 0.3125rem;
+	line-height: 1.35;
+	color: var(--sl-color-gray-2);
+}
+.sidebar-content a:hover {
+	background-color: var(--sl-color-gray-6);
+	color: var(--sl-color-white);
+}
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='page']:hover {
+	background-color: transparent;
+	color: var(--sl-color-accent);
+	font-weight: 600;
+}
+
+/* Right-hand contents list: same eyebrow treatment, quieter rows. */
+.right-sidebar starlight-toc h2 {
+	font-size: 0.6875rem;
+	font-weight: 600;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+	color: var(--sl-color-gray-3);
+}
+.right-sidebar starlight-toc a {
+	font-size: var(--sl-text-xs);
+	padding-block: 0.25rem;
+	border-inline-start: 1px solid var(--sl-color-gray-5);
+	padding-inline-start: 0.75rem;
+}
+.right-sidebar starlight-toc a[aria-current='true'] {
+	border-inline-start-color: var(--sl-color-accent);
 }
