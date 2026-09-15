@@ -55,6 +55,11 @@ export default defineConfig({
 					translations: { en: 'Account' },
 					items: [{ autogenerate: { directory: 'cuenta' } }],
 				},
+				{
+					label: 'Profesores',
+					translations: { en: 'Teachers' },
+					items: [{ autogenerate: { directory: 'profesores' } }],
+				},
 			],
 		}),
 		markdoc(),

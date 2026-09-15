@@ -16,6 +16,8 @@ hero:
 
 {% cardgrid stagger=true %}
 
+{% linkcard title="¿Estudiante o profesor?" description="La página de entrada y a dónde te lleva cada ruta." href="/acceso/entrar/" /%}
+
 {% linkcard title="Iniciar sesión" description="Las cuatro formas de entrar al campus y cuál te conviene." href="/acceso/iniciar-sesion/" /%}
 
 {% linkcard title="Entrar con Nostr" description="Sin contraseña ni email: firma con tu extensión Nostr." href="/acceso/login-nostr/" /%}
@@ -27,5 +29,15 @@ hero:
 {% linkcard title="Crear una cuenta" description="Registro clásico con usuario y contraseña." href="/acceso/crear-cuenta/" /%}
 
 {% linkcard title="Recuperar la contraseña" description="Si olvidaste tu usuario o tu contraseña." href="/acceso/recuperar-contrasena/" /%}
+
+{% /cardgrid %}
+
+## ¿Vienes a enseñar?
+
+{% cardgrid %}
+
+{% linkcard title="Crear tu cuenta de instructor" description="Entra con Authentik y abre tu espacio de profesor." href="/profesores/registro/" /%}
+
+{% linkcard title="Proponer un curso" description="El formulario de tres pasos, hasta el Pull Request." href="/profesores/crear-curso/" /%}
 
 {% /cardgrid %}
