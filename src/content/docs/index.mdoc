@@ -4,15 +4,16 @@ description: Guías paso a paso para entrar y usar la plataforma de cursos de Li
 template: splash
 hero:
   tagline: Todo lo que necesitas para entrar al campus, gestionar tu cuenta y seguir tus cursos.
-  actions:
-    - text: Cómo iniciar sesión
-      link: /acceso/iniciar-sesion/
-      icon: right-arrow
-    - text: Ir al campus
-      link: https://moodle.libreriadesatoshi.com
-      icon: external
-      variant: minimal
 ---
+
+{% audiencepicker
+   student="Soy estudiante"
+   teacher="Soy profesor"
+   campus="Ir al campus"
+   campusHref="https://moodle.libreriadesatoshi.com"
+   hint="Estás viendo solo las guías de tu perfil. Pulsa otra vez el mismo botón para verlas todas." /%}
+
+## Entrar al campus
 
 {% cardgrid stagger=true %}
 
@@ -24,20 +25,44 @@ hero:
 
 {% linkcard title="Entrar con GitHub o Google" description="Usa una cuenta que ya tienes." href="/acceso/login-github-google/" /%}
 
-{% linkcard title="Acceso como invitado" description="Explora los cursos abiertos sin crear cuenta." href="/acceso/acceso-invitado/" /%}
-
 {% linkcard title="Crear una cuenta" description="Registro clásico con usuario y contraseña." href="/acceso/crear-cuenta/" /%}
 
 {% linkcard title="Recuperar la contraseña" description="Si olvidaste tu usuario o tu contraseña." href="/acceso/recuperar-contrasena/" /%}
 
+{% linkcard title="Tu perfil e idioma" description="Nombre, foto, email, idioma y notificaciones." href="/cuenta/perfil-e-idioma/" /%}
+
 {% /cardgrid %}
 
-## ¿Vienes a enseñar?
+{% audience for="student" %}
+
+## Si vienes a aprender
+
+{% cardgrid %}
+
+{% linkcard title="Acceso como invitado" description="Explora los cursos abiertos sin crear cuenta." href="/acceso/acceso-invitado/" /%}
+
+{% /cardgrid %}
+
+{% /audience %}
+
+{% audience for="teacher" %}
+
+## Si vienes a enseñar
 
 {% cardgrid %}
 
 {% linkcard title="Crear tu cuenta de instructor" description="Entra con Authentik y abre tu espacio de profesor." href="/profesores/registro/" /%}
 
+{% linkcard title="Completar tu perfil" description="Qué se pide, qué puede esperar y qué puede frenar el envío." href="/profesores/perfil/" /%}
+
+{% linkcard title="Crear una cuenta de GitHub" description="Nombre público, email privado y verificación en dos pasos." href="/profesores/cuenta-github/" /%}
+
+{% linkcard title="Conectar tu GitHub" description="La identidad con la que se te atribuye el curso." href="/profesores/github/" /%}
+
 {% linkcard title="Proponer un curso" description="El formulario de tres pasos, hasta el Pull Request." href="/profesores/crear-curso/" /%}
 
+{% linkcard title="Seguir el estado de tu curso" description="Borradores, revisión en GitHub y vuelta al campus." href="/profesores/mis-cursos/" /%}
+
 {% /cardgrid %}
+
+{% /audience %}

@@ -23,6 +23,13 @@ export default defineConfig({
 			},
 			customCss: ['./src/styles/custom.css'],
 			head: [
+				{
+					// Applies the saved audience filter before first paint, so the cards
+					// for the other profile never flash on screen.
+					tag: 'script',
+					content:
+						"try{var a=localStorage.getItem('lds-audience');if(a)document.documentElement.dataset.audience=a}catch(e){}",
+				},
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.googleapis.com' } },
 				{ tag: 'link', attrs: { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true } },
 				{

@@ -4,15 +4,16 @@ description: Step-by-step guides to sign in and use the Librería de Satoshi cou
 template: splash
 hero:
   tagline: Everything you need to get into the campus, manage your account and follow your courses.
-  actions:
-    - text: How to sign in
-      link: /en/acceso/iniciar-sesion/
-      icon: right-arrow
-    - text: Go to the campus
-      link: https://moodle.libreriadesatoshi.com
-      icon: external
-      variant: minimal
 ---
+
+{% audiencepicker
+   student="I'm a student"
+   teacher="I'm a teacher"
+   campus="Go to the campus"
+   campusHref="https://moodle.libreriadesatoshi.com"
+   hint="You are seeing only the guides for your profile. Press the same button again to see them all." /%}
+
+## Getting into the campus
 
 {% cardgrid stagger=true %}
 
@@ -24,20 +25,44 @@ hero:
 
 {% linkcard title="Sign in with GitHub or Google" description="Use an account you already have." href="/en/acceso/login-github-google/" /%}
 
-{% linkcard title="Guest access" description="Browse open courses without creating an account." href="/en/acceso/acceso-invitado/" /%}
+{% linkcard title="Create an account" description="Classic signup with username and password." href="/en/acceso/crear-cuenta/" /%}
 
-{% linkcard title="Create an account" description="Classic sign-up with username and password." href="/en/acceso/crear-cuenta/" /%}
+{% linkcard title="Recover your password" description="If you forgot your username or password." href="/en/acceso/recuperar-contrasena/" /%}
 
-{% linkcard title="Reset your password" description="If you forgot your username or password." href="/en/acceso/recuperar-contrasena/" /%}
+{% linkcard title="Your profile and language" description="Name, photo, email, language and notifications." href="/en/cuenta/perfil-e-idioma/" /%}
 
 {% /cardgrid %}
 
-## Here to teach?
+{% audience for="student" %}
+
+## Here to learn
+
+{% cardgrid %}
+
+{% linkcard title="Guest access" description="Browse open courses without creating an account." href="/en/acceso/acceso-invitado/" /%}
+
+{% /cardgrid %}
+
+{% /audience %}
+
+{% audience for="teacher" %}
+
+## Here to teach
 
 {% cardgrid %}
 
 {% linkcard title="Create your instructor account" description="Sign in with Authentik and open your teacher space." href="/en/profesores/registro/" /%}
 
+{% linkcard title="Fill in your profile" description="What is asked, what can wait and what can block you." href="/en/profesores/perfil/" /%}
+
+{% linkcard title="Create a GitHub account" description="Public name, private email and two-factor authentication." href="/en/profesores/cuenta-github/" /%}
+
+{% linkcard title="Connect your GitHub" description="The identity your course is attributed to." href="/en/profesores/github/" /%}
+
 {% linkcard title="Propose a course" description="The three-step form, all the way to the Pull Request." href="/en/profesores/crear-curso/" /%}
 
+{% linkcard title="Track your course status" description="Drafts, GitHub review and back to the campus." href="/en/profesores/mis-cursos/" /%}
+
 {% /cardgrid %}
+
+{% /audience %}

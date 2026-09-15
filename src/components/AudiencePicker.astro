@@ -1,0 +1,59 @@
+---
+/**
+ * Two buttons that filter the page's card groups by audience, plus the campus
+ * link. The choice is stored per browser; with no JavaScript every group stays
+ * visible, so the page degrades to the unfiltered list.
+ */
+interface Props {
+	student: string;
+	teacher: string;
+	campus: string;
+	campusHref: string;
+	hint: string;
+}
+const { student, teacher, campus, campusHref, hint } = Astro.props;
+---
+
+<div class="audience-picker not-content" data-audience-picker>
+	<div class="audience-picker__buttons">
+		<button type="button" data-audience-set="student" aria-pressed="false">{student}</button>
+		<button type="button" data-audience-set="teacher" aria-pressed="false">{teacher}</button>
+		<a class="audience-picker__campus" href={campusHref}>{campus}</a>
+	</div>
+	<p class="audience-picker__hint" data-audience-hint hidden>{hint}</p>
+</div>
+
+<script>
+	const KEY = 'lds-audience';
+	const root = document.documentElement;
+
+	function apply(value: string | null) {
+		if (value) root.dataset.audience = value;
+		else delete root.dataset.audience;
+
+		document.querySelectorAll<HTMLButtonElement>('[data-audience-set]').forEach((btn) => {
+			btn.setAttribute('aria-pressed', String(btn.dataset.audienceSet === value));
+		});
+		document.querySelectorAll<HTMLElement>('[data-audience-hint]').forEach((hint) => {
+			hint.hidden = !value;
+		});
+	}
+
+	let stored: string | null = null;
+	try {
+		stored = localStorage.getItem(KEY);
+	} catch {}
+	apply(stored);
+
+	document.querySelectorAll<HTMLButtonElement>('[data-audience-set]').forEach((btn) => {
+		btn.addEventListener('click', () => {
+			// Pressing the active button again clears the filter.
+			const next = root.dataset.audience === btn.dataset.audienceSet ? null : btn.dataset.audienceSet!;
+			apply(next);
+			try {
+				if (next) localStorage.setItem(KEY, next);
+				else localStorage.removeItem(KEY);
+			} catch {}
+		});
+	});
+</script>

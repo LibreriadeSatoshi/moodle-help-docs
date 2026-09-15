@@ -1,0 +1,11 @@
+---
+/** Wraps content shown only to one audience. `for` is "student" or "teacher". */
+interface Props {
+	for: 'student' | 'teacher';
+}
+const audience = Astro.props.for;
+---
+
+<div class="audience-scope" data-audience-for={audience}>
+	<slot />
+</div>

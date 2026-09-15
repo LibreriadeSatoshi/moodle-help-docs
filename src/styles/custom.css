@@ -190,3 +190,57 @@ site-search button[data-open-modal] > kbd {
 .right-sidebar starlight-toc a[aria-current='true'] {
 	border-inline-start-color: var(--sl-color-accent);
 }
+
+/* ---------------------------------------------------------------------------
+   Audience filter on the home page. Until a choice is made nothing is hidden,
+   so the page works the same with JavaScript disabled.
+   --------------------------------------------------------------------------- */
+
+.audience-picker {
+	margin-block: 1.5rem 2.5rem;
+}
+.audience-picker__buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.75rem;
+	align-items: center;
+	justify-content: center;
+}
+.audience-picker button {
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+	padding: 0.625rem 1.25rem;
+	border-radius: 9999px;
+	border: 1px solid var(--sl-color-gray-5);
+	background: transparent;
+	color: var(--sl-color-white);
+}
+.audience-picker button:hover {
+	border-color: var(--lds-accent);
+}
+.audience-picker button[aria-pressed='true'] {
+	background: var(--lds-accent);
+	border-color: var(--lds-accent);
+	color: var(--lds-accent-contrast);
+}
+.audience-picker__campus {
+	font-weight: 600;
+	text-decoration: none;
+	color: var(--sl-color-gray-2);
+	padding: 0.625rem 0.5rem;
+}
+.audience-picker__campus:hover {
+	color: var(--sl-color-accent);
+}
+.audience-picker__hint {
+	margin-block: 0.875rem 0;
+	text-align: center;
+	font-size: var(--sl-text-sm);
+	color: var(--sl-color-gray-3);
+}
+
+:root[data-audience='student'] .audience-scope[data-audience-for='teacher'],
+:root[data-audience='teacher'] .audience-scope[data-audience-for='student'] {
+	display: none;
+}
