@@ -40,7 +40,24 @@ Browser extensions do not work in most mobile browsers. On your phone, use [GitH
 The first sign-in with a Nostr key creates your account automatically:
 
 - **Display name**: taken from your Nostr profile (the `display_name` in your profile event). If you have no published profile, a generic name is used, which you can change in [your profile](/en/cuenta/perfil-e-idioma/).
-- **Email**: not required. You can add one in your profile if you want course notices by email.
+- **Email**: you are never asked for one. The campus generates a placeholder address from your `npub`. See below for what that means.
+
+## You will not receive any email
+
+To protect your privacy, signing in with Nostr **never asks you for an email**: the campus builds a placeholder address from your `npub`. That address does not exist, so:
+
+- **You will receive no email or communication from the campus**: no course notices, no forum replies, no assignment reminders, no announcements.
+- Your identity stays unlinked to a real email address, which is the whole point.
+
+This is the default behaviour and for many people it is the desired one. But if you were expecting notices and nothing arrives, this is why — it is not a fault.
+
+### If you do want them
+
+You have to **manually replace** that placeholder with your real address in [your campus profile](/en/cuenta/perfil-e-idioma/): avatar → **Profile** → **Edit profile** → **Email address**. You will get a confirmation email at the new address.
+
+{% aside type="caution" title="It is a trade-off" %}
+The moment you enter a real email, your campus account is tied to it. If you chose Nostr precisely to avoid that, leave the placeholder alone and read your notices inside the campus, under **Preferences → Notification preferences**.
+{% /aside %}
 
 ## Common errors
 

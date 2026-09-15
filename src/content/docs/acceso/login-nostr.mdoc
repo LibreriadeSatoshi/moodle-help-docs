@@ -40,7 +40,24 @@ Las extensiones de navegador no funcionan en la mayoría de navegadores móviles
 Al entrar por primera vez con una clave Nostr se crea tu cuenta automáticamente:
 
 - **Nombre visible**: se toma de tu perfil Nostr (el `display_name` de tu evento de perfil). Si no tienes perfil publicado, se usa un nombre genérico que puedes cambiar en [tu perfil](/cuenta/perfil-e-idioma/).
-- **Email**: no es obligatorio. Puedes añadir uno en tu perfil si quieres recibir avisos del curso por correo.
+- **Email**: no se te pide ninguno. El campus genera una dirección ficticia a partir de tu `npub`. Lee abajo lo que eso implica.
+
+## No vas a recibir correos
+
+Para preservar tu privacidad, al entrar con Nostr **no se te pide un email**: el campus construye una dirección ficticia a partir de tu `npub`. Esa dirección no existe, así que:
+
+- **No recibirás ningún correo ni comunicación del campus**: ni avisos de cursos, ni respuestas en foros, ni recordatorios de entregas, ni novedades.
+- Tu identidad sigue sin estar ligada a un email real, que es justo lo que se busca.
+
+Es el comportamiento por defecto y para mucha gente es el deseado. Pero si esperas recibir avisos y no te llega nada, esta es la razón: no es un fallo.
+
+### Si quieres recibirlos
+
+Tienes que **sustituir a mano** esa dirección ficticia por tu email real en [tu perfil del campus](/cuenta/perfil-e-idioma/): avatar → **Perfil** → **Editar perfil** → campo **Dirección de correo**. Recibirás un correo de confirmación en la dirección nueva.
+
+{% aside type="caution" title="Es una decisión con contrapartida" %}
+En cuanto pongas un email real, tu cuenta del campus queda vinculada a él. Si entraste con Nostr precisamente para evitar eso, deja la dirección ficticia como está y consulta los avisos dentro del campus, en **Preferencias → Preferencias de notificación**.
+{% /aside %}
 
 ## Errores habituales
 
